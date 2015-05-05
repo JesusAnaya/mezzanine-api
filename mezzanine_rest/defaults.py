@@ -20,7 +20,7 @@ DEFAULT_SETTINGS = {
 
 
 register_setting(
-    name="MEZZANINE_API_SETTINGS",
+    name="MEZZANINE_REST_SETTINGS",
     editable=False,
     default=DEFAULT_SETTINGS,
 )
