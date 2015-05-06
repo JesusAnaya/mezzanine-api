@@ -5,3 +5,11 @@ venv
 .DS_Store
 build
 src
+
+# egg data
+*.egg-info
+*.egg
+
+*.xml
+pep8.txt
+.coverage

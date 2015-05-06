@@ -3,7 +3,7 @@ from django.db.models.loading import get_model
 from mezzanine.conf import settings
 from mezzanine_rest.serializers import MutableModelSerializer
 from mezzanine_rest.viewsets import MutableModelViewSet
-from copy import deepcopy
+
 
 class DynamicAPIRouter(object):
     router = routers.SimpleRouter()
@@ -21,8 +21,6 @@ class DynamicAPIRouter(object):
 
                 serializer_class = MutableModelSerializer.create(model)
                 viewset = MutableModelViewSet.create(model, serializer_class)
-
-                print "Model: ", model.__name__, " viewset: ", viewset.queryset
 
                 results.update({
                     '%s/%s' % (root_name.lower(), model_name.lower()): viewset
