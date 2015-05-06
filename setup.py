@@ -1,5 +1,13 @@
 #!/usr/bin/env python
+
 from setuptools import setup
+import sys
+import os
+
+
+if sys.argv == ["setup.py", "test"]:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "test.settings_test")
+    sys.path.insert(0, os.path.abspath(os.path.dirname(__file__))+'/')
 
 
 def get_requirements():
@@ -18,7 +26,9 @@ setup(
     install_requires=get_requirements(),
     test_suite='setuptest.setuptest.SetupTestSuite',
     tests_require=(
+        'django==1.6',
         'django-setuptest',
-        'argparse'
+        'argparse',
+        'mock==1.0.1'
     ),
 )
