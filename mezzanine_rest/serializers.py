@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 
-class MutableModelSerializer(ModelSerializer):
+class MutableModelSerializer(object):
     @classmethod
     def create(cls, model):
         class_name = '{}Serializer'.format(model.__name__)
@@ -11,4 +11,4 @@ class MutableModelSerializer(ModelSerializer):
                 'exclude': []
             })
         }
-        return type(class_name, (MutableModelSerializer,), attrs)
+        return type(class_name, (ModelSerializer,), attrs)
