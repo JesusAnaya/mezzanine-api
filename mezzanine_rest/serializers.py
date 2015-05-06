@@ -8,7 +8,7 @@ class MutableModelSerializer(ModelSerializer):
         attrs = {
             'Meta': type('Meta', (), {
                 'model': model,
-                'exclude': ('site',)
+                'exclude': []
             })
         }
         return type(class_name, (MutableModelSerializer,), attrs)
